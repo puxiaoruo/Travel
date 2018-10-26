@@ -1,16 +1,16 @@
 <template>
     <div class="wrapper">
         <swiper :options="swiperOption">
-        <!-- slides -->
-        <swiper-slide v-for="item in swiperList" :key="item.id">
-            <img class="swiper-img" :src="item.imgUrl" alt="">
-        </swiper-slide>
-        <!-- <swiper-slide>
-            <img class="swiper-img" src="http://img1.qunarzz.com/piao/fusion/1809/c6/2467595fffc3b302.jpg_750x200_cca13d51.jpg" alt="">
-        </swiper-slide> -->
-        <!-- Optional controls -->
-        <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
+            <!-- slides -->
+            <swiper-slide v-for="item in swiperList" :key="item.id">
+                <img class="swiper-img" :src="item.imgUrl" alt="">
+            </swiper-slide>
+            <!-- <swiper-slide>
+                <img class="swiper-img" src="http://img1.qunarzz.com/piao/fusion/1809/c6/2467595fffc3b302.jpg_750x200_cca13d51.jpg" alt="">
+            </swiper-slide> -->
+            <!-- Optional controls -->
+            <div class="swiper-pagination"  slot="pagination"></div>
+        </swiper>
     </div>
 </template>
 <script>
