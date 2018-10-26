@@ -1,6 +1,5 @@
 <template>
     <div class="icons">
-        <!-- <div class="icon" v-for="n in 8" :key="n"> -->
         <div class="icon" v-for="item in iconLists" :key="item.id">
             <div class="icon-img">
                 <img class="icon-img-content" :src="item.imgUrl" alt="">
@@ -35,7 +34,7 @@ export default {
         height : 0
         padding-bottom: 50%
         .icon
-            position relative
+            position : relative
             float :left
             width: 25%
             height : 0
