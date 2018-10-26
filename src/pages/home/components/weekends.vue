@@ -3,7 +3,7 @@
         <div class="recommend-title">
             周末去哪
         </div>
-        <div class="item" v-for="item in weekendsLists" :key="item.id">
+        <div class="item" v-for="item in list" :key="item.id">
             <img class="item-img" :src="item.imgUrl" alt="">
             <div class="item-content">
                 <div class="item-title">{{item.title}}</div>
@@ -15,6 +15,7 @@
 <script>
 export default {
     name : "HomeWeekends",
+    props: { list : Array },
     data () {
         return {
             weekendsLists : [

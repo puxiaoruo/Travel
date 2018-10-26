@@ -7,7 +7,7 @@
                     <div class="icon-img">
                         <img class="icon-img-content" :src="item.imgUrl" alt="">
                     </div>
-                    <p class="icon-desc">{{item.text}}</p>
+                    <p class="icon-desc">{{item.desc}}</p>
                 </div>
             </swiper-slide>
         </swiper>
@@ -17,6 +17,7 @@
 <script>
 export default {
     name: "HomeIcons",
+    props: { list : Array },
     data() {
         return {
             swiperOption: {},
@@ -36,7 +37,7 @@ export default {
     computed: {
         pages() {
             const pages = [];
-            this.iconLists.forEach((item,index) => {
+            this.list.forEach((item,index) => {
                 const page = Math.floor(index / 8); //这个数据应该展示在第几页上
                 if(!pages[page]){
                     pages[page] = [];
