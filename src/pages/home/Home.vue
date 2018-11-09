@@ -1,6 +1,6 @@
 <template>
     <div>
-        <home-header></home-header>
+        <home-header :city="city"></home-header>
         <home-swiper :list="swiperList"></home-swiper>
         <home-icons :list="iconList"></home-icons>
         <home-recommend :list="recommendList"></home-recommend>
@@ -29,7 +29,8 @@ export default {
             iconList : [],
             recommendList : [],
             swiperList : [],
-            weekendList : []
+            weekendList : [],
+            city: ""
         }
     },
     methods:  {
@@ -38,6 +39,7 @@ export default {
         },
         getHomeIndoSucc (res) {
             const _this = this;
+            _this.city = res.data.city;
             _this.iconList = res.data.data.iconList;
             _this.swiperList = res.data.data.swiperList;
             _this.recommendList = res.data.data.recommendList;
