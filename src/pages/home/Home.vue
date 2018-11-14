@@ -1,6 +1,6 @@
 <template>
     <div>
-        <home-header :city="city"></home-header>
+        <home-header></home-header>
         <home-swiper :list="swiperList"></home-swiper>
         <home-icons :list="iconList"></home-icons>
         <home-recommend :list="recommendList"></home-recommend>
@@ -15,6 +15,7 @@ import HomeIcons from './components/icons' ;
 import HomeRecommend from './components/recommend' ;
 import HomeWeekends from './components/weekends' ;
 import axios from "axios";
+import { mapState } from 'vuex'
 export default {
     name: 'Home',
     components: {
@@ -30,16 +31,18 @@ export default {
             recommendList : [],
             swiperList : [],
             weekendList : [],
-            city: ""
+            lastCity: ''
         }
+    },
+    computed: {
+        ...mapState(['city'])
     },
     methods:  {
         getHomeInfo () {
-            axios.get('/api/index.json').then(this.getHomeIndoSucc)
+            axios.get('/api/index.json?city='+this.city).then(this.getHomeIndoSucc)
         },
         getHomeIndoSucc (res) {
             const _this = this;
-            _this.city = res.data.city;
             _this.iconList = res.data.data.iconList;
             _this.swiperList = res.data.data.swiperList;
             _this.recommendList = res.data.data.recommendList;
@@ -47,7 +50,14 @@ export default {
         }
     },
     mounted () {
+        this.lastCity = this.city;
         this.getHomeInfo()
+    },
+    activated () {
+        // 用了keep-alive组件后有的周期   页面重新被现实的时候加载
+        if(this.lastCity !== this.city){
+            this.getHomeInfo()
+        }
     }
 }
 </script>
