@@ -42,8 +42,11 @@ export default {
             }
         }
     },
-    activated () {
+    activated () {  // 每次页面展示时候执行
         window.addEventListener('scroll',this.handleScroll)
+    },
+    deactivated () { // 页面即将被替换成新的页面的时候执行
+        window.removeEventListener('scroll',this.handleScroll)   // 随时间进行解绑
     }
 }
 </script>
