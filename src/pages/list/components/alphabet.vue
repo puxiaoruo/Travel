@@ -39,8 +39,7 @@ export default {
     },
     methods : {
         handleLetterClick : function(e) {
-            e.preventDefault();
-            console.log(e.target.innerText);
+            // console.log(e.target.innerText);
             this.$emit('change',e.target.innerText)
         },
         handleTouchStart : function() {
@@ -52,7 +51,6 @@ export default {
                     clearTimeout(this.timer);
                 }
                 this.timer = setTimeout(() => {
-                    // const startY = this.$refs['A'][0].offsetTop;
                     const touchY = e.touches[0].clientY - 79;
                     const index = Math.floor((touchY - this.startY) / 20) ;
                     if(index >= 0 && index < this.letters.length){
