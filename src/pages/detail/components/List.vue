@@ -16,6 +16,9 @@ export default {
     name: "DetailList",
     props: {
         list: Array 
+    },
+    mounted() {
+        console.log(this.list)
     }
 }
 </script>

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- 路由内容被加载过之后放入内存，这样就不需要每次跳转路由都能再执行一次 -->
-    <keep-alive>  
+    <!-- exclude中的组件不被缓存  其他的都被缓存 -->
+    <keep-alive exclude="Detail">    
       <router-view/>
     </keep-alive>
   </div>
