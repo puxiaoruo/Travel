@@ -51,7 +51,6 @@ export default {
                         }
                     });
                 }
-                console.log(result)
                 this.list = result
             } ,16)
         }

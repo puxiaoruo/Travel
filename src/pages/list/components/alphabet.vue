@@ -4,7 +4,7 @@
             v-for="item in letters" 
             :key="item"
             :ref="item"
-            @touchstart="handleTouchStart"
+            @touchstart.prevent="handleTouchStart"
             @touchmove="handleTouchMove"
             @touchend="handleTouchEnd"
             @click="handleLetterClick"
@@ -39,6 +39,8 @@ export default {
     },
     methods : {
         handleLetterClick : function(e) {
+            e.preventDefault();
+            console.log(e.target.innerText);
             this.$emit('change',e.target.innerText)
         },
         handleTouchStart : function() {
