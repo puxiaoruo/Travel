@@ -12,6 +12,7 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+      // component: resolve => require(['@/pages/home/Home'],resolve)   真正线上项目的写法
     },
     {
       path: '/list',
