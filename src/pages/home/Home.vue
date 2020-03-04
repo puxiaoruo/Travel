@@ -40,6 +40,7 @@ export default {
     methods:  {
         getHomeInfo () {
             axios.get('/api/index.json?city='+this.city).then(this.getHomeIndoSucc)
+            console.log('测试添加')
         },
         getHomeIndoSucc (res) {
             const _this = this;
